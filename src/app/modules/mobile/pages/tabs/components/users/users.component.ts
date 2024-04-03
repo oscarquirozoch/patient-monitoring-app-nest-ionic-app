@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service.service';
 import { IPaginateEntityApiResponse } from 'src/app/interfaces/paginate-entity-api-response.interface';
 import { IListUserApiResponse } from 'src/app/interfaces/user/list-users-api-response.interface';
-import { IUsersApiFilters } from 'src/app/interfaces/user/users-api.filters.interface';
+import { IUsersApiFilters } from 'src/app/interfaces/user/users-api-filters.interface';
 import { Pagination } from 'src/app/classes/pagination.class';
 import { ActionSheet } from 'src/app/classes/action-sheet.class';
 import { IApiResponse } from 'src/app/interfaces/api-response.interface';

@@ -10,6 +10,8 @@ import { TabsPage } from './tabs.page';
 import { UsersComponent } from './components/users/users.component';
 import { HomeComponent } from './components/home/home.component';
 import { PatientsComponent } from './components/patients/patients.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { PatientsComponent } from './components/patients/patients.component';
     TabsPage,
     HomeComponent,
     UsersComponent,
-    PatientsComponent
+    PatientsComponent,
+    ReportsComponent,
+    ConfigurationComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

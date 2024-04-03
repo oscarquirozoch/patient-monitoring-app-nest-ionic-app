@@ -83,7 +83,13 @@ export class Toast {
         return this;
     }
 
-    success(): this { this.color = 'success'; return this };
-    warning(): this { this.color = 'warning'; return this };
-    danger(): this { this.color = 'danger'; return this };
+    success(): this { this.color = 'success'; return this }
+    warning(): this { this.color = 'warning'; return this }
+    danger(): this { this.color = 'danger'; return this }
+
+    incompleteDataMessage(): this { this.message = 'Faltan completar datos!'; return this; }
+    createMessage(): this { this.message = 'Se registró correctamente'; return this; }
+    updateMessage(): this { this.message = 'Se actualizó correctamente'; return this; }
+    deleteMessage(): this { this.message = 'Se eliminó correctamente'; return this; }
+    deactivateMessage(): this { this.message = 'Se desactivó correctamente'; return this; }
 }

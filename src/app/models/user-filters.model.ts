@@ -1,4 +1,4 @@
-import { IUsersApiFilters } from "../interfaces/user/users-api.filters.interface";
+import { IUsersApiFilters } from "../interfaces/user/users-api-filters.interface";
 
 export class UserFiltersModel implements IUsersApiFilters {
 

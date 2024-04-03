@@ -62,7 +62,7 @@ export class CreateUserPage implements OnInit {
       this.userToCreate.confirm_password == '' ||
       this.userToCreate.type_role.id == ''
     ) {
-      this.toast.warning().setMessage('Faltan completar datos!').show();
+      this.toast.warning().incompleteDataMessage().show();
       return;
     }
 
@@ -90,7 +90,7 @@ export class CreateUserPage implements OnInit {
       }).subscribe((response: IApiResponse<IUser>) => {
         if (response.code === 201) {
           this.userToCreate.reset();
-          this.toast.success().setMessage('El usuario se creo correctamente').show();
+          this.toast.success().createMessage().show();
           this.router.navigateByUrl('/mobile/tabs/users');
         };
       })

@@ -11,7 +11,7 @@ export class TabsPage implements OnInit {
     { title: 'Inicio', url: 'home', icon: 'home-outline' },
     { title: 'Usuarios', url: 'users', icon: 'people-outline' },
     { title: 'Pacientes', url: 'patients', icon: 'heart-outline' },
-    { title: 'Reportes', url: 'report', icon: 'book-outline' },
+    { title: 'Reportes', url: 'reports', icon: 'book-outline' },
     { title: 'Configuración', url: 'configuration', icon: 'settings-outline' },
   ];
 

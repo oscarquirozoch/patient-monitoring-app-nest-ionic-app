@@ -1,8 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { IApiResponse } from 'src/app/interfaces/api-response.interface';
 import { IGetManagementTypesApiResponse } from 'src/app/interfaces/management-type/get-management-types-api-response.interface';
+import { IListManagementTypesApiResponse } from 'src/app/interfaces/management-type/list-management-types-api-response.interface';
+import { HandleErrorService } from '../handle-error.service';
+import { IManagementType } from 'src/app/interfaces/management-type/management-type.interface';
+import { IPaginateEntityApiResponse } from 'src/app/interfaces/paginate-entity-api-response.interface';
+import { IShowManagementTypeApiResponse } from 'src/app/interfaces/management-type/show-management-type-api-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +15,31 @@ import { IGetManagementTypesApiResponse } from 'src/app/interfaces/management-ty
 export class ManagementTypeService {
 
   constructor(
-    private http: HttpClient
+    private _http: HttpClient,
+    private _handleErrorService: HandleErrorService
   ) { }
 
-  get(args: any): Observable<IApiResponse<IGetManagementTypesApiResponse[]>> {
-    return this.http.get<IApiResponse<IGetManagementTypesApiResponse[]>>('management-types/get', { params: args });
+  show(id: string): Observable<IApiResponse<IShowManagementTypeApiResponse>> {
+    return this._http.get<IApiResponse<IShowManagementTypeApiResponse>>('management-types/show/' + id)
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post('management-types', data);
+  get(args: any): Observable<IApiResponse<IGetManagementTypesApiResponse[]>> {
+    return this._http.get<IApiResponse<IGetManagementTypesApiResponse[]>>('management-types/get', { params: args });
+  }
+
+  list(args: any): Observable<IApiResponse<IPaginateEntityApiResponse<IListManagementTypesApiResponse[]>>> {
+    return this._http.get<IApiResponse<IPaginateEntityApiResponse<IListManagementTypesApiResponse[]>>>('management-types/list', { params: args });
+  }
+
+  create(data: any): Observable<IApiResponse<IManagementType>> {
+    return this._http.post<IApiResponse<IManagementType>>('management-types', data).pipe(
+      catchError((error: HttpErrorResponse) => { return this._handleErrorService.throw(error) })
+    );
+  }
+
+  update(data: any): Observable<IApiResponse<IManagementType>> {
+    return this._http.put<IApiResponse<IManagementType>>('management-types', data).pipe(
+      catchError((error: HttpErrorResponse) => { return this._handleErrorService.throw(error) })
+    )
   }
 }

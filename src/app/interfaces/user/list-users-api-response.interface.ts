@@ -1,4 +1,4 @@
-import { IManagementType } from "./management-type.interface";
+import { IManagementType } from "../management-type/management-type.interface";
 
 export interface IListUserApiResponse {
     id?: string;

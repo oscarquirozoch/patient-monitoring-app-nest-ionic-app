@@ -1,0 +1,114 @@
+<ion-content class="ion-padding">
+  <ion-row class="tagline">
+    <ion-col size="12">
+      <ion-button mode="ios" color="light" [routerLink]="['/', 'mobile', 'packets', 'list']">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size="12">
+      <ion-label>
+        <ion-text>
+          Registrar
+        </ion-text>
+        <p>
+          <ion-text color="dark">
+            Nuevo paquete
+          </ion-text>
+        </p>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <div class="divider"></div>
+
+  <br>
+  <br>
+
+  <ion-list>
+    <ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Nombre: <ion-text color="danger">(*)</ion-text></ion-label>
+        </ion-col>
+        <ion-col>
+          <input type="text" [(ngModel)]="userToCreate.document_number">
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Descripción:</ion-label>
+        </ion-col>
+        <ion-col>
+          <input type="text" [(ngModel)]="userToCreate.name">
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Especialidades:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-button mode="ios" expand="block" (click)="setOpenModalAddSpecialities(true)">Añadir</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-modal [isOpen]="isModalAddSpecialitiesOpen">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-row class="tagline">
+          <ion-col size="12">
+            <ion-button mode="ios" color="light" id="advance-filters" (click)="setOpenModalAddSpecialities(false)">
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label>
+              <ion-text>
+                Agregar
+              </ion-text>
+              <ion-text>
+                Especialidades
+              </ion-text>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-list [inset]="true">
+          <ion-item *ngFor="let speciality of specialities">
+            <ion-checkbox slot="start" aria-label="Toggle task completion"
+              [(ngModel)]="speciality.checked"></ion-checkbox>
+            <ion-input aria-label="Task name">
+              {{speciality.text}}
+            </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <ion-footer>
+        <ion-button mode="ios" expand="block" class="button-apply-advance-filters" (click)="createUser()">
+          Agregar
+          <ion-icon slot="end" name="add-outline"></ion-icon>
+        </ion-button>
+      </ion-footer>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button mode="ios" expand="block" class="button-apply-advance-filters" (click)="createUser()">
+          Guardar
+          <ion-icon slot="end" name="save-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

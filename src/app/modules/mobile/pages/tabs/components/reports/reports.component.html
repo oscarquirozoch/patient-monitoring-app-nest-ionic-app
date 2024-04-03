@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true" color="light">
+
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="light" class="ion-padding-vertical">
+
+      <ion-title mode="ios">
+        <img [src]="'assets/imgs/logo.png'">
+      </ion-title>
+
+      <ion-buttons slot="start">
+        <ion-thumbnail [routerLink]="['/', 'mobile', 'patients', 'create']">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-thumbnail>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-thumbnail>
+          <img src="assets/imgs/avatar.jpeg">
+        </ion-thumbnail>
+      </ion-buttons>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row class="tagline">
+    <ion-col size="12">
+      <ion-label>
+        <ion-text>
+          Reportes
+        </ion-text>
+        <p>
+          Control / Seguimiento
+        </p>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

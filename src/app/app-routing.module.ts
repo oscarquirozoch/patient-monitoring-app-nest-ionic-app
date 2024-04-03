@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'mobile',
     loadChildren: () => import('./modules/mobile/mobile-routing.module').then(m => m.MobileRouterModule)
-  }
+  },
 ];
 
 @NgModule({
